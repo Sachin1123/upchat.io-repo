@@ -1,0 +1,3956 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Pet Parents API Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://3.132.243.209/api",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/brand": {
+            "get": {
+                "tags": [
+                    "Brand"
+                ],
+                "summary": "Brand",
+                "operationId": "brands",
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BrandResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/cart": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Create cart key",
+                "operationId": "Create cart key",
+                "responses": {
+                    "200": {
+                        "description": "Create cart key",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/cart/{id}": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "show cart items",
+                "operationId": "show cart items",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "show cart items",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SingleCartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Delete cart",
+                "operationId": "Delete cart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Get cart id by key"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/cart/{cart}/{itemId}": {
+            "delete": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Delete cart item",
+                "operationId": "Delete cart item",
+                "parameters": [
+                    {
+                        "name": "cart id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    },
+                    {
+                        "name": "item id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Delete cart item by key"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/cartIdByKey": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Get cart id by key",
+                "operationId": "Get cart id by key",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Get cart id by key",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/cart/{cart}": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Add Product into cart",
+                "operationId": "ProductCart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/cart/update/{cart}": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "update cart Product into cart",
+                "operationId": "ProductCart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/checkout/{cart}": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Add checkout for order from cart",
+                "operationId": "CheckOutCart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartCheckoutRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/payment": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Add payment for order from cart",
+                "operationId": "payment",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChargesRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChargesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Categories",
+                "operationId": "Categories",
+                "responses": {
+                    "200": {
+                        "description": "Categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategoriesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/categories/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Categories By Id",
+                "operationId": "Categories By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategoriesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/cart": {
+            "get": {
+                "tags": [
+                    "ChowhubCarts"
+                ],
+                "summary": "Create cart key",
+                "operationId": "Create Chowhub cart key",
+                "responses": {
+                    "200": {
+                        "description": "Create cart key",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/cart/{id}": {
+            "get": {
+                "tags": [
+                    "ChowhubCarts"
+                ],
+                "summary": "show cart items",
+                "operationId": "show Chowhub cart items",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "show cart items",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SingleCartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ChowhubCarts"
+                ],
+                "summary": "Delete cart",
+                "operationId": "Delete Chowhub cart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Get cart id by key"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/cart/{cart}/{itemId}": {
+            "delete": {
+                "tags": [
+                    "ChowhubCarts"
+                ],
+                "summary": "Delete cart item",
+                "operationId": "Delete Chowhub cart item",
+                "parameters": [
+                    {
+                        "name": "cart id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    },
+                    {
+                        "name": "item id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Delete cart item by key"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "chowhub/cartIdByKey": {
+            "get": {
+                "tags": [
+                    "ChowhubCarts"
+                ],
+                "summary": "Get cart id by key",
+                "operationId": "Get Chowhub cart id by key",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Get cart id by key",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/cart/{cart}": {
+            "post": {
+                "tags": [
+                    "ChowhubCarts"
+                ],
+                "summary": "Add chowhub Product into cart",
+                "operationId": "Chowhub ProductCart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/categories": {
+            "get": {
+                "tags": [
+                    "ChowhubProducts"
+                ],
+                "summary": "Chowhub Categories",
+                "operationId": "Chowhub Categories",
+                "responses": {
+                    "200": {
+                        "description": "Chowhub Categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategoriesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/categories/{id}": {
+            "get": {
+                "tags": [
+                    "ChowhubProducts"
+                ],
+                "summary": "Chowhub Categories By Id",
+                "operationId": "Chowhub Categories By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategoriesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/products": {
+            "get": {
+                "tags": [
+                    "ChowhubProducts"
+                ],
+                "summary": "Chowhub Products",
+                "operationId": "Chowhub Products",
+                "responses": {
+                    "200": {
+                        "description": "Products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/products/{id}": {
+            "get": {
+                "tags": [
+                    "ChowhubProducts"
+                ],
+                "summary": "Chowhub Products By Id",
+                "operationId": "Chowhub Product By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/products/attributes/{id}": {
+            "get": {
+                "tags": [
+                    "ChowhubProducts"
+                ],
+                "summary": "Attributes by Chowhub Product Id",
+                "operationId": "Chowhub Product By categoryId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttributesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/tags": {
+            "get": {
+                "tags": [
+                    "Chowhubtags"
+                ],
+                "summary": "Chowhub tags",
+                "operationId": "Chowhub tags",
+                "responses": {
+                    "200": {
+                        "description": "tags",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/chowhub/rating/{product_id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "operationId": "chowhub rating",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RatingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/rating/create": {
+            "post": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "chowhub Rating Request store",
+                "operationId": "chowhub Rating Request store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RatingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/rating/overall/{product_id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "over all rating",
+                "operationId": "overall rating",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OverAllRatingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/stores": {
+            "get": {
+                "tags": [
+                    "ChowhubStores"
+                ],
+                "summary": "Chowhub stores",
+                "operationId": "chowhub stores",
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/stores/{store}": {
+            "get": {
+                "tags": [
+                    "ChowhubStores"
+                ],
+                "summary": "Chowhub store By Id",
+                "operationId": "chowhub store By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/coupon": {
+            "post": {
+                "tags": [
+                    "coupon"
+                ],
+                "summary": "coupon",
+                "operationId": "coupon",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CouponRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CouponResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/faq/{product_id}": {
+            "get": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Faqs",
+                "operationId": "faqs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "search title/description",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FaqResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/faq/store": {
+            "post": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Faqs store",
+                "operationId": "faqs store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FaqRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FaqResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/faq/{product_id}": {
+            "get": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "chowhubFaq",
+                "operationId": "chowhubFaq",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "search title/description",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FaqResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/chowhub/faq/store": {
+            "post": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "chowhubFaq store",
+                "operationId": "chowhubFaq store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FaqRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FaqResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/litterhub/cart": {
+            "get": {
+                "tags": [
+                    "LitterhubCarts"
+                ],
+                "summary": "Create cart key",
+                "operationId": "Create litterhub cart key",
+                "responses": {
+                    "200": {
+                        "description": "Create cart key",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/litterhub/cart/{id}": {
+            "get": {
+                "tags": [
+                    "LitterhubCarts"
+                ],
+                "summary": "show cart items",
+                "operationId": "show litterhub cart items",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "show cart items",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SingleCartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "LitterhubCarts"
+                ],
+                "summary": "Delete cart",
+                "operationId": "Delete litterhub cart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Get cart id by key"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/litterhub/cart/{cart}/{itemId}": {
+            "delete": {
+                "tags": [
+                    "LitterhubCarts"
+                ],
+                "summary": "Delete cart item",
+                "operationId": "Delete litterhub cart item",
+                "parameters": [
+                    {
+                        "name": "cart id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    },
+                    {
+                        "name": "item id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Delete cart item by key"
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "litterhub/cartIdByKey": {
+            "get": {
+                "tags": [
+                    "LitterhubCartS"
+                ],
+                "summary": "Get cart id by key",
+                "operationId": "Get Litterhub cart id by key",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartKeyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Get cart id by key",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/litterhub/cart/{cart}": {
+            "post": {
+                "tags": [
+                    "LitterhubCarts"
+                ],
+                "summary": "Add Litterhub Product into cart",
+                "operationId": "Litterhub ProductCart",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "litterhub/faq/{product_id}": {
+            "get": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Faqs",
+                "operationId": "litterhub faqs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "search title/description",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FaqResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "litterhub/faq/store": {
+            "post": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Litterhub Faqs store",
+                "operationId": "litterhub faqs store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FaqRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FaqResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/litterhub/products": {
+            "get": {
+                "tags": [
+                    "LitterhubProducts"
+                ],
+                "summary": "litterhub Products",
+                "operationId": "litterhub Products",
+                "responses": {
+                    "200": {
+                        "description": "Products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/litterhub/products/{id}": {
+            "get": {
+                "tags": [
+                    "LitterhubProducts"
+                ],
+                "summary": "Chowhub Products By Id",
+                "operationId": "litterhub Product By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/litterhub/products/attributes/{id}": {
+            "get": {
+                "tags": [
+                    "LitterhubProducts"
+                ],
+                "summary": "Attributes by litterhub Product Id",
+                "operationId": "litterhub Product By categoryId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttributesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/litterhub/tags": {
+            "get": {
+                "tags": [
+                    "Litterhubtags"
+                ],
+                "summary": "litterhub tags",
+                "operationId": "litterhub tags",
+                "responses": {
+                    "200": {
+                        "description": "tags",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/litterhub/stores": {
+            "get": {
+                "tags": [
+                    "LitterhubStores"
+                ],
+                "summary": "litterhub stores",
+                "operationId": "litterhub stores",
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/litterhub/stores/{store}": {
+            "get": {
+                "tags": [
+                    "LitterhubStores"
+                ],
+                "summary": "litterhub store By Id",
+                "operationId": "Litterhub store By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/order": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "get orders",
+                "operationId": "get orders",
+                "responses": {
+                    "200": {
+                        "description": "get orders",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrderResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/order/{order}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "get order by id",
+                "operationId": "get order by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "get orders",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrderResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/pages": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Pages",
+                "operationId": "Pages",
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/pages/{id}": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Page By Id",
+                "operationId": "Pages By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Register new user",
+                "operationId": "register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResgisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResgisterResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login existing user",
+                "operationId": "login",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/oauth/token": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Token existing user",
+                "operationId": "token",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TokenRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/pet": {
+            "get": {
+                "tags": [
+                    "Pet"
+                ],
+                "operationId": "pet",
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/pet/create": {
+            "post": {
+                "tags": [
+                    "Pet"
+                ],
+                "summary": "pet store",
+                "operationId": "pet store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PetRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Products",
+                "operationId": "Products",
+                "responses": {
+                    "200": {
+                        "description": "Products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Products By Id",
+                "operationId": "Product By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/products/category/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Products By Category Id",
+                "operationId": "Product By categoryId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/products/attributes/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Attributes by Product Id",
+                "operationId": "Product By categoryId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttributesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/rating/{product_id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "operationId": "rating",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "path",
+                        "description": "search title/description",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "ASC/DESC",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RatingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/rating/create": {
+            "post": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "RatingRequest store",
+                "operationId": "Rating Request store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RatingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/rating/overall/{product_id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "over all rating",
+                "operationId": "overall rating",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "3",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OverAllRatingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "settings",
+                "operationId": "settings",
+                "responses": {
+                    "200": {
+                        "description": "settings",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SettingResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/solutionhub/products": {
+            "get": {
+                "tags": [
+                    "SolutionhubProducts"
+                ],
+                "summary": "Solutionhub Products",
+                "operationId": "Solutionhub Products",
+                "responses": {
+                    "200": {
+                        "description": "Products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/solutionhub/products/{id}": {
+            "get": {
+                "tags": [
+                    "SolutionhubProducts"
+                ],
+                "summary": "Solutionhub Products By Id",
+                "operationId": "Solutionhub Product By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/solutionhub/tags": {
+            "get": {
+                "tags": [
+                    "SolutionhubProducts"
+                ],
+                "summary": "Solutionhub tags",
+                "operationId": "Solutionhub tags",
+                "responses": {
+                    "200": {
+                        "description": "tags",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ]
+            }
+        },
+        "/stores": {
+            "get": {
+                "tags": [
+                    "Stores"
+                ],
+                "summary": "stores",
+                "operationId": "stores",
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/stores/{store}": {
+            "get": {
+                "tags": [
+                    "Stores"
+                ],
+                "summary": "store By Id",
+                "operationId": "store By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                }
+            }
+        },
+        "/profile": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "User Profile",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "User Profile",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/update": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "UpdateProfile",
+                "operationId": "update",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateProfileRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "UpdateProfile",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/BadRequest"
+                    },
+                    "404": {
+                        "$ref": "#/components/schemas/Notfound"
+                    },
+                    "500": {
+                        "$ref": "#/components/schemas/Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BadRequest": {
+                "title": "Bad Request",
+                "description": "BadRequest",
+                "properties": {
+                    "dsfsfds": {
+                        "title": "dsfsfds",
+                        "description": "Bad Request",
+                        "type": "string"
+                    }
+                },
+                "type": "string"
+            },
+            "BrandResponse": {
+                "title": "Brand Response",
+                "description": "Brand Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 2,
+                            "name": "test test",
+                            "logo": "https://petparent.s3.ap-south-1.amazonaws.com/images/fkBJ1vhxMQ0UM6gmL9F4aXnFQiQ2t4ckdLJ5Qh7p.jpg",
+                            "cover_image": "https://petparent.s3.ap-south-1.amazonaws.com/images/n889KiAXfHpXXziIvCrDqxoiZxkWlumz4iWfyw2W.png",
+                            "brand_color": "3434",
+                            "tag_line": "<p>fdggdf</p>",
+                            "overview": "<p>gfd</p>",
+                            "category_text": "<p>gfdgf</p>"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CartCheckoutRequest": {
+                "title": "Create new checkout",
+                "description": "Request for create a new checkout for a cart",
+                "properties": {
+                    "key": {
+                        "title": "key",
+                        "description": "key  for storing",
+                        "type": "string",
+                        "example": "e2e26459499dac9e6361419963e2e42861cc42adb8d6d"
+                    },
+                    "name": {
+                        "title": "name ",
+                        "description": "name for storing",
+                        "type": "string",
+                        "example": "john"
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "email for storing",
+                        "type": "string",
+                        "example": "john@gmail.com"
+                    },
+                    "address": {
+                        "title": "address",
+                        "description": "address  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "phone": {
+                        "title": "phone",
+                        "description": "phone  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "zip_code": {
+                        "title": "zip_code",
+                        "description": "zip_code  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "city": {
+                        "title": "city",
+                        "description": "city  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "state": {
+                        "title": "state",
+                        "description": "state  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "country": {
+                        "title": "country",
+                        "description": "country  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "sh_email": {
+                        "title": "sh_email",
+                        "description": "sh_email  for storing",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "sh_name": {
+                        "title": "sh_name",
+                        "description": "sh_name  for storing",
+                        "type": "string",
+                        "example": "Sam"
+                    },
+                    "sh_city": {
+                        "title": "sh_city",
+                        "description": "sh_city  for storing",
+                        "type": "string",
+                        "example": "Chandigarh"
+                    },
+                    "sh_state": {
+                        "title": "sh_state",
+                        "description": "sh_state  for storing",
+                        "type": "string",
+                        "example": "Chandigarh"
+                    },
+                    "sh_address": {
+                        "title": "sh_address",
+                        "description": "sh_address  for storing",
+                        "type": "string",
+                        "example": "211 IT Park"
+                    },
+                    "sh_country": {
+                        "title": "sh_country",
+                        "description": "sh_country  for storing",
+                        "type": "string",
+                        "example": "India"
+                    },
+                    "sh_zip_code": {
+                        "title": "sh_zip_code",
+                        "description": "sh_zip_code  for storing",
+                        "type": "string",
+                        "example": "134109"
+                    },
+                    "sh_phone": {
+                        "title": "sh_phone",
+                        "description": "sh_phone  for storing",
+                        "type": "string",
+                        "example": "9854689758"
+                    },
+                    "payment_method": {
+                        "title": "payment_method",
+                        "description": "payment_method  for storing",
+                        "type": "string",
+                        "example": "Paypal"
+                    },
+                    "shippingmethod": {
+                        "title": "shippingmethod",
+                        "description": "shippingmethod  for storing",
+                        "type": "string",
+                        "example": "express"
+                    },
+                    "remark": {
+                        "title": "remark",
+                        "description": "remark  for storing",
+                        "type": "string",
+                        "example": "Test remark"
+                    },
+                    "transaction": {
+                        "title": "transaction",
+                        "description": "transaction  for storing",
+                        "type": "string",
+                        "example": "txn_fserrt54gfhhfdfd"
+                    }
+                },
+                "type": "object"
+            },
+            "CartKeyRequest": {
+                "title": "Create new Cart",
+                "description": "Request for create a new cart",
+                "properties": {
+                    "key": {
+                        "title": "key",
+                        "description": "key  for storring",
+                        "type": "string",
+                        "example": "e2e26459499dac9e6361419963e2e42861cc42adb8d6d"
+                    }
+                },
+                "type": "object"
+            },
+            "CartRequest": {
+                "title": "Create new Cart",
+                "description": "Request for create a new cart",
+                "properties": {
+                    "key": {
+                        "title": "key",
+                        "description": "key  for storring",
+                        "type": "string",
+                        "example": "e2e26459499dac9e6361419963e2e42861cc42adb8d6d"
+                    },
+                    "product_id": {
+                        "title": "Product Id",
+                        "description": "Product Id for storring",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "quantity": {
+                        "title": "Quantity",
+                        "description": "Quantity for storring",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "variation_product_id": {
+                        "title": "Variation",
+                        "description": "Variation id for storring",
+                        "type": "string",
+                        "example": "2"
+                    }
+                },
+                "type": "object"
+            },
+            "CartResponse": {
+                "title": "Cart Response",
+                "description": "Cart Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": "2",
+                            "key": "a88483e72092f83baee46349fef80e9661cc3e5d4cba2"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ChargesRequest": {
+                "title": "Create new checkout",
+                "description": "Request for create a new checkout for a cart",
+                "properties": {
+                    "name": {
+                        "title": "name ",
+                        "description": "name for storing",
+                        "type": "string",
+                        "example": "john"
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "email for storing",
+                        "type": "string",
+                        "example": "john@gmail.com"
+                    },
+                    "address": {
+                        "title": "address",
+                        "description": "address  for storing",
+                        "type": "string",
+                        "example": "los angle"
+                    },
+                    "zip_code": {
+                        "title": "zip_code",
+                        "description": "zip_code  for storing",
+                        "type": "string",
+                        "example": "343334"
+                    },
+                    "city": {
+                        "title": "city",
+                        "description": "city  for storing",
+                        "type": "string",
+                        "example": "chd"
+                    },
+                    "state": {
+                        "title": "state",
+                        "description": "state  for storing",
+                        "type": "string",
+                        "example": "hp"
+                    },
+                    "country": {
+                        "title": "country",
+                        "description": "country  for storing",
+                        "type": "string",
+                        "example": "india"
+                    },
+                    "product_id": {
+                        "title": "product_id",
+                        "description": "product_id  for storing",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "strip_token": {
+                        "title": "strip_token ",
+                        "description": "strip_token   for storing",
+                        "type": "string",
+                        "example": "9RQo4Vq7b5CZwlsoJGlq4fEWkqg2Kt54LzigE6Y0ov"
+                    },
+                    "amount": {
+                        "title": "amount",
+                        "description": "amount  for storing",
+                        "type": "string",
+                        "example": "33"
+                    },
+                    "currency": {
+                        "title": "amount",
+                        "description": "currency  for storing",
+                        "type": "string",
+                        "example": "$"
+                    }
+                },
+                "type": "object"
+            },
+            "ChargesResponse": {
+                "title": "Charges Response",
+                "description": "Charges Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "message": "payment successfull",
+                            "transaction_id": "txn_46349fef80e9661cc3e5d4cba2",
+                            "amount": "45"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SingleCartResponse": {
+                "title": "Cart Response",
+                "description": "Cart Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 6,
+                            "user_id": 0,
+                            "key": "e2e26459499dac9e6361419963e2e42861cc42adb8d6d",
+                            "created_at": "2021-12-29T11:12:45.000000Z",
+                            "updated_at": "2021-12-29T11:12:45.000000Z"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ProductRequest": {
+                "title": "Product Request response",
+                "description": "Product Request response",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id for storring",
+                        "type": "string",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "ProductResponse": {
+                "title": "Categories Response",
+                "description": "Categories Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": "2",
+                            "name": "test test",
+                            "slug": "test-test",
+                            "status": "1",
+                            "weight": "21.00",
+                            "description": "dfsdfsdfsd",
+                            "sku": "dsfd",
+                            "quantity": "12",
+                            "price": "12.00",
+                            "sale_price": "121.00",
+                            "variation_attributes": "",
+                            "created": "2021-12-13",
+                            "updated_at": "2021-12-13"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CouponRequest": {
+                "title": "Coupon Request response",
+                "description": "Coupon Request response",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name for storring",
+                        "type": "string",
+                        "example": "TPPSHGN0DJZRHGN0DJZR"
+                    }
+                },
+                "type": "object"
+            },
+            "CouponResponse": {
+                "title": "Coupon Response",
+                "description": "Coupon Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 1,
+                            "name": "test test",
+                            "code": "TPPSHGN0DJZRHGN0DJZR",
+                            "category_id": 1,
+                            "product_id": 6,
+                            "value": 13,
+                            "count": 12,
+                            "expired_at": "2022-01-20",
+                            "type": "percentage",
+                            "apply_to": "specific_product"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "FaqRequest": {
+                "title": "Create new checkout",
+                "description": "Request for create a new checkout for a cart",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name  for storing",
+                        "type": "string",
+                        "example": "johm"
+                    },
+                    "email": {
+                        "title": "email ",
+                        "description": "email for storing",
+                        "type": "string",
+                        "example": "john"
+                    },
+                    "question": {
+                        "title": "question",
+                        "description": "question for storing",
+                        "type": "string",
+                        "example": "What is the meaning of Lorem ipsum?"
+                    },
+                    "answer": {
+                        "title": "answer",
+                        "description": "answer for storing",
+                        "type": "string",
+                        "example": "its a dummy data"
+                    },
+                    "product_id": {
+                        "title": "product_id",
+                        "description": "question for product",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "published": {
+                        "title": "published",
+                        "description": "question for product",
+                        "type": "string",
+                        "example": "1/0"
+                    }
+                },
+                "type": "object"
+            },
+            "FaqResponse": {
+                "title": "Faq Response",
+                "description": "Faq Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 1,
+                            "title": "<p>dfsdfs</p>",
+                            "description": "<p>dsfsddf</p>",
+                            "published": 1,
+                            "created_at": "2022-01-20T10:01:36.000000Z"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Forbidden": {
+                "title": "Forbidden",
+                "description": "Forbidden",
+                "properties": {
+                    "forbidden": {
+                        "title": "forbidden",
+                        "description": "Forbidden",
+                        "type": "string"
+                    }
+                },
+                "type": "string"
+            },
+            "Notfound": {
+                "title": "Not found",
+                "description": "Not found",
+                "properties": {
+                    "notfound": {
+                        "title": "Not found",
+                        "description": "Not found",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "OrderResponse": {
+                "title": "Order Response",
+                "description": "Order Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 20,
+                            "transaction_id": "cf7d5a4a4bf880fdbd132ac36981d13b",
+                            "status": "pending",
+                            "grand_total": 414,
+                            "item_count": 1,
+                            "is_paid": 0,
+                            "payment_method": "cod",
+                            "shippingmethod": "efsdfsdfsd",
+                            "remark": "dgfdgfd",
+                            "created_at": "2022-01-19T11:54:26.000000Z",
+                            "user": {
+                                "id": 1,
+                                "name": "admin",
+                                "profile_image": null,
+                                "email": "admin@admin.com",
+                                "address": "rgdrtrgr",
+                                "zip_code": "34234",
+                                "phone": "45543",
+                                "city": "56",
+                                "state": "56gfd",
+                                "country": "6cvbgg",
+                                "created_at": "Dec 27, 2021 05:31:41"
+                            },
+                            "shipping": {
+                                "id": 4,
+                                "sh_name": "dgdsg",
+                                "sh_address": "cvdfgsdfsd",
+                                "sh_city": "gdfg",
+                                "sh_state": "dfsd",
+                                "sh_country": "fdsdf",
+                                "sh_zip_code": "535343",
+                                "sh_phone": "455435",
+                                "sh_email": "admin@admin.com",
+                                "created_at": "2022-01-19T11:51:14.000000Z"
+                            },
+                            "orderItems": {
+                                "id": 4,
+                                "product_id": 2,
+                                "variation_id": 4,
+                                "unit_price": "450",
+                                "quantity": 4,
+                                "product": {
+                                    "id": 2,
+                                    "name": "fdgfdg,",
+                                    "feature_image": "https://petparent.s3.ap-south-1.amazonaws.com/images/Qp4jWuExff3k3FxbQw3Ool4K2WAYLPiWTu3UAlvy.png"
+                                },
+                                "variationProduct": {
+                                    "id": 4,
+                                    "real_price": 435,
+                                    "sale_price": 450,
+                                    "image": "https://petparent.s3.ap-south-1.amazonaws.com/images/LnVMgn0L7dwX8ZyVRaCjDUeQYO53aogE702daYVW.png"
+                                },
+                                "total_price": "1800",
+                                "created_at": "2022-01-19T11:54:26.000000Z"
+                            }
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "PageResponse": {
+                "title": "Page Response",
+                "description": "Page Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 7,
+                            "title": "fgfdgdfgdfs",
+                            "slug": "fgfdgdfgdfs",
+                            "content": "<p>dfgfdsgsfdgsfdgfdg</p>",
+                            "feature_image": "Screenshot_7.png",
+                            "status": "1",
+                            "user": "Admin",
+                            "categories": "admin",
+                            "created": "2021-12-10T06:01:07.000000Z",
+                            "updated_at": "2021-12-23T06:36:41.000000Z"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "PetRequest": {
+                "title": "Create new checkout",
+                "description": "Request for create a new checkout for a cart",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name  for storing",
+                        "type": "string",
+                        "example": "johm"
+                    },
+                    "type": {
+                        "title": "type ",
+                        "description": "type for storing",
+                        "type": "string",
+                        "example": "dog/cat"
+                    },
+                    "image": {
+                        "title": "image",
+                        "description": "image for storing",
+                        "type": "string",
+                        "example": "https://petparent.s3.ap-south-1.amazonaws.com/images/4Qpw6AjW7C0PT3GhfLsqctckMeOchNwe2BDFgcW9.png"
+                    },
+                    "age": {
+                        "title": "age",
+                        "description": "age for pet",
+                        "type": "string",
+                        "example": "2"
+                    }
+                },
+                "type": "object"
+            },
+            "PetResponse": {
+                "title": "Pet Response",
+                "description": "Pet Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 1,
+                            "name": "dogu",
+                            "user_id": 1,
+                            "age": 2,
+                            "type": "cat",
+                            "created_at": "2022-01-20T10:01:36.000000Z"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "AttributesResponse": {
+                "title": "Attributes Response",
+                "description": "Attributes Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": "3",
+                            "name": "size"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CategoriesRequest": {
+                "title": "Categories Request response",
+                "description": "Categories Request response",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id for storring",
+                        "type": "string",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "CategoriesResponse": {
+                "title": "Categories Response",
+                "description": "Categories Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": "3",
+                            "name": "test test",
+                            "slug": "test-test",
+                            "status": "1",
+                            "feature_image": "https://petparent.s3.ap-south-1.amazonaws.com/images/wRPTtNmKj0Kl8NFnUhuoLh5SyHpDXF5C7DmFzbS0.jpg",
+                            "created": "Dec 10, 2021 11:34:05",
+                            "updated_at": "2021-12-10T11:34:05.000000Z",
+                            "childrens": "[]"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "OverAllRatingResponse": {
+                "title": "OverAllRatingResponse",
+                "description": "OverAllRatingResponse",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "success": true,
+                            "overAllRating": 3,
+                            "total-reviews": 6
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "RatingRequest": {
+                "title": "Create new checkout",
+                "description": "Request for create a new checkout for a cart",
+                "properties": {
+                    "product_id": {
+                        "title": "product_id",
+                        "description": "product_id  for storing",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "rating": {
+                        "title": "rating ",
+                        "description": "rating for storing",
+                        "type": "string",
+                        "example": "123"
+                    },
+                    "title": {
+                        "title": "title",
+                        "description": "title for storing",
+                        "type": "string",
+                        "example": "title"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description for storing",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "email": {
+                        "title": "email ",
+                        "description": "email  for storing",
+                        "type": "string",
+                        "example": "user@gmail.com"
+                    },
+                    "status": {
+                        "title": "status ",
+                        "description": "status  for storing",
+                        "type": "string",
+                        "example": "0/1"
+                    },
+                    "images": {
+                        "title": "images ",
+                        "description": "images  for storing",
+                        "type": "string",
+                        "example": "user.jpg"
+                    }
+                },
+                "type": "object"
+            },
+            "RatingResponse": {
+                "title": "RatingResponse",
+                "description": "RatingResponse",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 1,
+                            "title": null,
+                            "description": "dfgdfdsfsdfsdf",
+                            "user": {
+                                "id": 6,
+                                "name": "edf",
+                                "email": "admin@fdgdfgfdgfdg.com",
+                                "address": null,
+                                "zip_code": null,
+                                "phone": null,
+                                "city": null,
+                                "state": null,
+                                "country": null,
+                                "created_at": "Jan 20, 2022 10:55:41"
+                            },
+                            "product": null,
+                            "published": null,
+                            "created_at": "2022-01-20T12:45:56.000000Z"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SettingResponse": {
+                "title": "settings Response",
+                "description": "settings Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "site_title": "dfdfdf",
+                            "site_email": "test@gmail.com",
+                            "phone": "1212121",
+                            "logo": null,
+                            "facebook": null,
+                            "youtube": null,
+                            "insta": null,
+                            "linkedin": null,
+                            "copyright": null
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "StoreResponse": {
+                "title": "store Response",
+                "description": "store Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 1,
+                            "name": "nike"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "TagResponse": {
+                "title": "tag Response",
+                "description": "tag Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 1,
+                            "name": "data"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Unauthenticated": {
+                "title": "Unauthenticated",
+                "description": "Unauthenticated",
+                "properties": {
+                    "unauthenticated": {
+                        "title": "Unauthenticated",
+                        "description": "Unauthenticated",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "LoginRequest": {
+                "title": "Login user",
+                "description": "Request for login user",
+                "properties": {
+                    "email": {
+                        "title": "Email",
+                        "description": "Email for storring",
+                        "type": "string",
+                        "example": "example@gmail.com"
+                    },
+                    "password": {
+                        "title": "Password",
+                        "description": "Password for storring",
+                        "type": "string",
+                        "example": "12345678"
+                    }
+                },
+                "type": "object"
+            },
+            "LoginResponse": {
+                "title": "Login Response",
+                "description": "Login Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "email": "example@gmail.com",
+                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDdjOWJmMDUwNzY4ZTM2ZGY0MWI3ZjU4OWU3MTk0M2NiNmI5MDg4MzdmMDY1ZjliMzVjODViMDUyMjZhMGFmOTAxMTAwMjZmNWVkZWY2M2YiLCJpYXQiOjE2MzQxMjEzMTcuODU1NzIsIm5iZiI6MTYzNDEyMTMxNy44NTU3MjYsImV4cCI6MTY2NTY1NzMxNy44MTk2NDksInN1YiI6IjgiLCJzY29wZXMiOltdfQ.rCXEb81s33RWToO6HsZsp9wpi14pSaiDSqGF7mX3kRBprUs9wtQqK7nDXhJkpDuWSdoFe7UB96tN9DjssZ6i6LkHiTAXV1PqB23O0CTpdV4d_NQgUE4ccUwQTzVRhNCK9oKAwBFLrnng9keeJ4jYLmZhlO2P3xk1kkHfZuxFMHh3ETOwu7V9hSJjxJH2WHTXrolE6iVbtkf6oYoxYaTdJ5Icw34HYUcx-ETXVKGH0_dZ3rm85rhgLt9nnCDKB7HNNU0sI-d-VueFtwIbaAB05XWrHhjOnVhRKsheAEeKIC8Y3bqV3rxjn8Of5pZ0vU0wfVXDMjDzZDRT9TDfpRlsAYL2Q88ncLizbcaAj4_xuMEyu3S-SAevsmfdgkwxuVqTRkcYMBksUmmP5eN6NeKGB9-LhRy7rphEk-W2SNFY5gNLPLkttokBRKISsGzv6bItfR6cJNDaQL1VVKoXsZkr7CpSfTY-oespoA0MEZB4Rs-j53aW4n0RlkLuh0ny4EbRG76MsgglUEoHuhKsZej2rTBmJsqftY9AZOw2Z4_n1yP0KPjQkIdRH9ghV30pXVXjYtoI5jaPPR0QgZgIG9sNmv8fpQyq8f4thy7YOuy9A9ufLYa7wmkBpG19DjgYVL7HcM_bREof6A2cffsYKCkuX3ziJ7BVgaWmC73FVakacqg"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ProfileResponse": {
+                "title": "Profile Response",
+                "description": "Profile Response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "name": "Bob",
+                            "email": "example@gmail.com",
+                            "address": "fdgdfg",
+                            "zip_code": "34234",
+                            "phone": "45543",
+                            "city": "56",
+                            "state": "56gfd",
+                            "country": "6cvbgg"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ResgisterRequest": {
+                "title": "Register new user",
+                "description": "Request for create a new user",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of key for storring",
+                        "type": "string",
+                        "example": "random"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "Email for storring",
+                        "type": "string",
+                        "example": "example@gmail.com"
+                    },
+                    "password": {
+                        "title": "Password",
+                        "description": "Password for storring",
+                        "type": "string",
+                        "example": "12345678"
+                    }
+                },
+                "type": "object"
+            },
+            "ResgisterResponse": {
+                "title": "Register user response",
+                "description": "Register user response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "email": "example@gmail.com",
+                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDdjOWJmMDUwNzY4ZTM2ZGY0MWI3ZjU4OWU3MTk0M2NiNmI5MDg4MzdmMDY1ZjliMzVjODViMDUyMjZhMGFmOTAxMTAwMjZmNWVkZWY2M2YiLCJpYXQiOjE2MzQxMjEzMTcuODU1NzIsIm5iZiI6MTYzNDEyMTMxNy44NTU3MjYsImV4cCI6MTY2NTY1NzMxNy44MTk2NDksInN1YiI6IjgiLCJzY29wZXMiOltdfQ.rCXEb81s33RWToO6HsZsp9wpi14pSaiDSqGF7mX3kRBprUs9wtQqK7nDXhJkpDuWSdoFe7UB96tN9DjssZ6i6LkHiTAXV1PqB23O0CTpdV4d_NQgUE4ccUwQTzVRhNCK9oKAwBFLrnng9keeJ4jYLmZhlO2P3xk1kkHfZuxFMHh3ETOwu7V9hSJjxJH2WHTXrolE6iVbtkf6oYoxYaTdJ5Icw34HYUcx-ETXVKGH0_dZ3rm85rhgLt9nnCDKB7HNNU0sI-d-VueFtwIbaAB05XWrHhjOnVhRKsheAEeKIC8Y3bqV3rxjn8Of5pZ0vU0wfVXDMjDzZDRT9TDfpRlsAYL2Q88ncLizbcaAj4_xuMEyu3S-SAevsmfdgkwxuVqTRkcYMBksUmmP5eN6NeKGB9-LhRy7rphEk-W2SNFY5gNLPLkttokBRKISsGzv6bItfR6cJNDaQL1VVKoXsZkr7CpSfTY-oespoA0MEZB4Rs-j53aW4n0RlkLuh0ny4EbRG76MsgglUEoHuhKsZej2rTBmJsqftY9AZOw2Z4_n1yP0KPjQkIdRH9ghV30pXVXjYtoI5jaPPR0QgZgIG9sNmv8fpQyq8f4thy7YOuy9A9ufLYa7wmkBpG19DjgYVL7HcM_bREof6A2cffsYKCkuX3ziJ7BVgaWmC73FVakacqg"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "TokenRequest": {
+                "title": "Register new user",
+                "description": "Request for create a new user",
+                "properties": {
+                    "client_id": {
+                        "title": "client_id",
+                        "description": "client_id of key for storring",
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "client_secret": {
+                        "title": "client_secret",
+                        "description": "client_secret for storring",
+                        "type": "string",
+                        "example": "8BSSg7qMYw2NAJaiMhQOCYxGlFSs141SLfPRLU"
+                    }
+                },
+                "type": "object"
+            },
+            "TokenResponse": {
+                "title": "token response",
+                "description": "token response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "client_id": "2",
+                            "client_secret": "eyJ0eXAiOiJKVhJkpDuW_NQgUE4ccUTXVKXWrHhYL2Q88ncLi"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateProfileRequest": {
+                "title": "Update user profile response",
+                "description": "Update user profile response",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name of key for updating",
+                        "type": "string",
+                        "example": "random"
+                    },
+                    "address": {
+                        "title": "address",
+                        "description": "address of key for updating",
+                        "type": "string",
+                        "example": "it park chd"
+                    },
+                    "zip_code": {
+                        "title": "zip_code",
+                        "description": "zip_code of key for updating",
+                        "type": "string",
+                        "example": "234456"
+                    },
+                    "phone": {
+                        "title": "phone",
+                        "description": "phone of key for updating",
+                        "type": "string",
+                        "example": "9870654321"
+                    },
+                    "city": {
+                        "title": "city",
+                        "description": "city of key for updating",
+                        "type": "string",
+                        "example": "chd"
+                    },
+                    "state": {
+                        "title": "state",
+                        "description": "state of key for updating",
+                        "type": "string",
+                        "example": "punjab"
+                    },
+                    "country": {
+                        "title": "country",
+                        "description": "country of key for updating",
+                        "type": "string",
+                        "example": "india"
+                    },
+                    "profile_image": {
+                        "title": "profile_image",
+                        "description": "profile_image of key for updating",
+                        "type": "string",
+                        "example": "random"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "password of key for updating",
+                        "type": "string",
+                        "example": "random"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateProfileResponse": {
+                "title": "Update  user response",
+                "description": "Update user response",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "id": 5,
+                            "name": "dataaf",
+                            "email": "test@gmail.com",
+                            "address": "fdgdfg",
+                            "zip_code": "34234",
+                            "phone": "45543",
+                            "city": "56",
+                            "state": "56gfd",
+                            "country": "6cvbgg",
+                            "created_at": "Jan 13, 2022 05:14:50",
+                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDdjOWJmMDUwNzY4ZTM2ZGY0MWI3ZjU4OWU3MTk0M2NiNmI5MDg4MzdmMDY1ZjliMzVjODViMDUyMjZhMGFmOTAxMTAwMjZmNWVkZWY2M2YiLCJpYXQiOjE2MzQxMjEzMTcuODU1NzIsIm5iZiI6MTYzNDEyMTMxNy44NTU3MjYsImV4cCI6MTY2NTY1NzMxNy44MTk2NDksInN1YiI6IjgiLCJzY29wZXMiOltdfQ.rCXEb81s33RWToO6HsZsp9wpi14pSaiDSqGF7mX3kRBprUs9wtQqK7nDXhJkpDuWSdoFe7UB96tN9DjssZ6i6LkHiTAXV1PqB23O0CTpdV4d_NQgUE4ccUwQTzVRhNCK9oKAwBFLrnng9keeJ4jYLmZhlO2P3xk1kkHfZuxFMHh3ETOwu7V9hSJjxJH2WHTXrolE6iVbtkf6oYoxYaTdJ5Icw34HYUcx-ETXVKGH0_dZ3rm85rhgLt9nnCDKB7HNNU0sI-d-VueFtwIbaAB05XWrHhjOnVhRKsheAEeKIC8Y3bqV3rxjn8Of5pZ0vU0wfVXDMjDzZDRT9TDfpRlsAYL2Q88ncLizbcaAj4_xuMEyu3S-SAevsmfdgkwxuVqTRkcYMBksUmmP5eN6NeKGB9-LhRy7rphEk-W2SNFY5gNLPLkttokBRKISsGzv6bItfR6cJNDaQL1VVKoXsZkr7CpSfTY-oespoA0MEZB4Rs-j53aW4n0RlkLuh0ny4EbRG76MsgglUEoHuhKsZej2rTBmJsqftY9AZOw2Z4_n1yP0KPjQkIdRH9ghV30pXVXjYtoI5jaPPR0QgZgIG9sNmv8fpQyq8f4thy7YOuy9A9ufLYa7wmkBpG19DjgYVL7HcM_bREof6A2cffsYKCkuX3ziJ7BVgaWmC73FVakacqg"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "Bearer"
+            },
+            "Token": {
+                "type": "apiKey",
+                "name": "Token",
+                "in": "header",
+                "scheme": "Token"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Pet Parents",
+            "description": "API Endpoints of Pet Parents"
+        }
+    ],
+    "security": {
+        "0": [],
+        "passport": {
+            "type": "oauth2",
+            "description": "Laravel passport oauth2 security.",
+            "in": "header",
+            "scheme": "https",
+            "flows": {
+                "password": {
+                    "authorizationUrl": "http://127.0.0.1:8000//oauth/authorize",
+                    "tokenUrl": "http://127.0.0.1:8000//oauth/token",
+                    "refreshUrl": "http://127.0.0.1:8000//token/refresh",
+                    "scopes": []
+                }
+            }
+        }
+    }
+}

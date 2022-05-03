@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/admin.js": "/js/admin.js",
+    "/css/app.css": "/css/app.css",
+    "/css/admin.css": "/css/admin.css",
+    "/resources/views/vendor/jsvalidation/bootstrap.php": "/resources/views/vendor/jsvalidation/bootstrap.php",
+    "/resources/views/vendor/jsvalidation/bootstrap4.php": "/resources/views/vendor/jsvalidation/bootstrap4.php",
+    "/resources/views/vendor/jsvalidation/bootstrap5.php": "/resources/views/vendor/jsvalidation/bootstrap5.php",
+    "/resources/views/vendor/jsvalidation/uikit.php": "/resources/views/vendor/jsvalidation/uikit.php"
+}

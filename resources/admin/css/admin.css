@@ -1,0 +1,16 @@
+.action-buttons {display: flex;	flex-direction: row;	justify-content: start;	align-items: center;
+}
+#datatable {
+    border: none;
+       
+}
+.ml_auto{margin-left: auto;}
+#datatable_wrapper td.sorting_1 {
+    background: none;
+}
+#datatable_wrapper thead .sorting_asc, #datatable_wrapper thead .sorting_desc {
+    background-color: #fff;
+}
+#datatable {
+    width: auto !important;
+}
